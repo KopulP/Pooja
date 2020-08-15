@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>gov.state.nextgen.cp</groupId>
+		<artifactId>customer.portal</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>rmcEJB</artifactId>
+	<packaging>ejb</packaging>
+	<name>Report My Changes EJB</name>
+	<description>Report My Changes EJB module</description>
+
+
+	<build>
+		<finalName>rmcEJB</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<version>${maven-ejb-plugin.version}</version>
+				<configuration>
+					<ejbVersion>${ejb.version}</ejbVersion>
+					<archive>
+						<manifest>
+							<classpathLayoutType>custom</classpathLayoutType>
+							<customClasspathLayout>lib/${artifact.artifactId}.${artifact.extension}</customClasspathLayout>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>${maven-jxr-plugin.version}</version>
+				<configuration>
+					<aggregate>true</aggregate>
+					<encoding>Cp1252</encoding>
+					<source>1.8</source>
+					<target>1.8</target>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>${maven-pmd-plugin.version}</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>${spotbugs-maven-plugin.version}</version>
+        <configuration>
+						<skip>true</skip>
+        </configuration>
+      </plugin>
+		</plugins>
+	</reporting>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${jee.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>gov.state.nextgen.cp</groupId>
+			<artifactId>framework</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>gov.state.nextgen.cp</groupId>
+			<artifactId>sharedApp</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>gov.state.nextgen.cp</groupId>
+			<artifactId>commonApp</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2</artifactId>
+			<version>${axis2.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>

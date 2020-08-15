@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: commonApp.jar 
+ framework.jar 
+ sharedApp.jar 
+ bridgesClient.jar 
+
